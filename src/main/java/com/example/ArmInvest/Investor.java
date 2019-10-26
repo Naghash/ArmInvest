@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 @Entity
 public class Investor {
@@ -20,7 +22,7 @@ public class Investor {
     private String phoneNumber;
 
 
-    public Investor() { }
+    public Investor(String email, String password) { }
 
     public Integer getId() {
         return id;
@@ -68,5 +70,14 @@ public class Investor {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+
+    public Map<String, Object> toDTO1(){
+        return new LinkedHashMap<String, Object>(){{
+            put("id", id);
+            put("email", email);
+            put("name", firstName);
+        }};
     }
 }
