@@ -33,17 +33,17 @@ public class ArminvestController {
 
     @RequestMapping(path = "/investors", method = RequestMethod.POST)
     public ResponseEntity<Object> register(
-            @RequestParam String email, @RequestParam String password) {
+            @RequestParam String userEmail, @RequestParam String password) {
 
-        if (email.isEmpty() || password.isEmpty()) {
+        if (userEmail.isEmpty() || password.isEmpty()) {
             return new ResponseEntity<>("Missing data", HttpStatus.FORBIDDEN);
         }
 
-        if (repoInvestor.findByUserEmail(email) !=  null) {
+        if (repoInvestor.findByUserEmail(userEmail) !=  null) {
             return new ResponseEntity<>("Email already in use", HttpStatus.FORBIDDEN);
         }
 
-        repoInvestor.save(new Investor(email, password));
+        repoInvestor.save(new Investor(userEmail, password));
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 

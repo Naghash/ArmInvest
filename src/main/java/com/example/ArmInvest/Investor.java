@@ -17,7 +17,7 @@ public class Investor {
     private Integer id;
     private String firstName;
     private String lastName;
-    private String email;
+    private String userEmail;
     private String password;
     private String phoneNumber;
 
@@ -49,11 +49,11 @@ public class Investor {
     }
 
     public String getEmail() {
-        return email;
+        return userEmail;
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.userEmail = email;
     }
 
     public String getPassword() {
@@ -76,7 +76,7 @@ public class Investor {
     public Map<String, Object> toDTO1(){
         return new LinkedHashMap<String, Object>(){{
             put("id", id);
-            put("email", email);
+            put("email", userEmail);
             put("name", firstName);
         }};
     }

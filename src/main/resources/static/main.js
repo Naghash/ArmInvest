@@ -1,7 +1,7 @@
 
 
 const register = () => {
-    let email = document.getElementById("email").value;
+    let userEmail = document.getElementById("email").value;
     let password = document.getElementById("password").value;
 
     fetch("http://localhost:8080/api/investors", {
@@ -10,9 +10,10 @@ const register = () => {
         headers: {
             "Content-Type": "application/x-www-form-urlencoded"
         },
-        body:"email=" + email + "&password=" + password
+        body:"userEmail=" + email + "&password=" + password
     }).then(function (response) {
         if (response.ok){
+        console.log("jojoj");
             logIn();
         }
 
@@ -23,7 +24,7 @@ const register = () => {
 };
 
 const logIn = () => {
-    let userName = document.getElementById("email").value;
+    let userEmail = document.getElementById("email").value;
     let password = document.getElementById("password").value;
 
     fetch("http://localhost:8080/api/login", {
@@ -32,7 +33,7 @@ const logIn = () => {
         headers: {
             "Content-Type": "application/x-www-form-urlencoded"
         },
-        body:"email=" + email + "&password=" + password
+        body:"userEmail=" + userEmail + "&password=" + password
     }).then(function (response) {
         if (response.ok){
             location.reload();
